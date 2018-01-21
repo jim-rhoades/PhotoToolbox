@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TZQ-K0-2a6">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Photo Toolbox View Controller-->
+        <scene sceneID="PvG-y3-rEc">
+            <objects>
+                <viewController id="3so-v1-xRH" customClass="PhotoToolboxViewController" customModule="PhotoToolbox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SUI-bb-qEv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xe3-S8-NKC">
+                                <rect key="frame" x="0.0" y="64" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Xe3-S8-NKC" secondAttribute="height" multiplier="1:1" id="fsW-GF-seL"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gId-AK-idX">
+                                <rect key="frame" x="150" y="617" width="75" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="DXX-Ks-l6r"/>
+                                </constraints>
+                                <state key="normal" title="Apply filter"/>
+                                <connections>
+                                    <action selector="applyFilter:" destination="3so-v1-xRH" eventType="touchUpInside" id="1Rs-b8-r5T"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Xe3-S8-NKC" firstAttribute="leading" secondItem="SUI-bb-qEv" secondAttribute="leading" id="0DG-5O-cIV"/>
+                            <constraint firstItem="Xe3-S8-NKC" firstAttribute="trailing" secondItem="SUI-bb-qEv" secondAttribute="trailing" id="0Vb-CQ-1q0"/>
+                            <constraint firstItem="gId-AK-idX" firstAttribute="centerX" secondItem="A9U-ba-bdn" secondAttribute="centerX" id="gGy-kS-V5O"/>
+                            <constraint firstItem="A9U-ba-bdn" firstAttribute="bottom" secondItem="gId-AK-idX" secondAttribute="bottom" constant="20" id="lGl-CA-X41"/>
+                            <constraint firstItem="Xe3-S8-NKC" firstAttribute="top" secondItem="A9U-ba-bdn" secondAttribute="top" id="uNm-OI-0aH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="A9U-ba-bdn"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="X1N-Si-6up">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="n67-IJ-znX">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="3so-v1-xRH" id="oA6-Oo-SSX"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="NJB-Ni-gMY">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="3so-v1-xRH" id="b36-ex-LQT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="photoView" destination="Xe3-S8-NKC" id="W00-bc-Y2A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Ab-B6-2cs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="298" y="159"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ofe-qN-uW0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TZQ-K0-2a6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lRG-0l-yhX">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3so-v1-xRH" kind="relationship" relationship="rootViewController" id="WEe-oy-LQ9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MxF-Vn-v76" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-532" y="159"/>
+        </scene>
+    </scenes>
+</document>

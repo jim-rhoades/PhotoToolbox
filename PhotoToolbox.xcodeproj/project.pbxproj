@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		383C387220150C6100A2F463 /* FilterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C387120150C6100A2F463 /* FilterFactory.swift */; };
 		38CDEEC52014211E00D8FFF1 /* PhotoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38CDEEBB2014211E00D8FFF1 /* PhotoToolbox.framework */; };
 		38CDEECA2014211E00D8FFF1 /* PhotoToolboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CDEEC92014211E00D8FFF1 /* PhotoToolboxTests.swift */; };
 		38CDEECC2014211E00D8FFF1 /* PhotoToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 38CDEEBE2014211E00D8FFF1 /* PhotoToolbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		38CDEED6201421A900D8FFF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38CDEED5201421A900D8FFF1 /* Main.storyboard */; };
+		38CDEED82014234D00D8FFF1 /* PhotoToolboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CDEED72014234D00D8FFF1 /* PhotoToolboxViewController.swift */; };
+		38CDEEE82014289700D8FFF1 /* PhotoToolbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CDEEE72014289700D8FFF1 /* PhotoToolbox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +27,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		383C387120150C6100A2F463 /* FilterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterFactory.swift; sourceTree = "<group>"; };
 		38CDEEBB2014211E00D8FFF1 /* PhotoToolbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhotoToolbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38CDEEBE2014211E00D8FFF1 /* PhotoToolbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoToolbox.h; sourceTree = "<group>"; };
 		38CDEEBF2014211E00D8FFF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38CDEEC42014211E00D8FFF1 /* PhotoToolboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoToolboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38CDEEC92014211E00D8FFF1 /* PhotoToolboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoToolboxTests.swift; sourceTree = "<group>"; };
 		38CDEECB2014211E00D8FFF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38CDEED5201421A900D8FFF1 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		38CDEED72014234D00D8FFF1 /* PhotoToolboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoToolboxViewController.swift; sourceTree = "<group>"; };
+		38CDEEE72014289700D8FFF1 /* PhotoToolbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoToolbox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +79,12 @@
 		38CDEEBD2014211E00D8FFF1 /* PhotoToolbox */ = {
 			isa = PBXGroup;
 			children = (
-				38CDEEBE2014211E00D8FFF1 /* PhotoToolbox.h */,
 				38CDEEBF2014211E00D8FFF1 /* Info.plist */,
+				38CDEED5201421A900D8FFF1 /* Main.storyboard */,
+				38CDEEBE2014211E00D8FFF1 /* PhotoToolbox.h */,
+				38CDEEE72014289700D8FFF1 /* PhotoToolbox.swift */,
+				38CDEED72014234D00D8FFF1 /* PhotoToolboxViewController.swift */,
+				383C387120150C6100A2F463 /* FilterFactory.swift */,
 			);
 			path = PhotoToolbox;
 			sourceTree = "<group>";
@@ -148,6 +160,7 @@
 				TargetAttributes = {
 					38CDEEBA2014211E00D8FFF1 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					38CDEEC32014211E00D8FFF1 = {
@@ -179,6 +192,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38CDEED6201421A900D8FFF1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +210,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				383C387220150C6100A2F463 /* FilterFactory.swift in Sources */,
+				38CDEEE82014289700D8FFF1 /* PhotoToolbox.swift in Sources */,
+				38CDEED82014234D00D8FFF1 /* PhotoToolboxViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +351,7 @@
 		38CDEED02014211E00D8FFF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -347,6 +365,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.crushapps.PhotoToolbox;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -355,6 +374,7 @@
 		38CDEED12014211E00D8FFF1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -376,6 +396,7 @@
 		38CDEED32014211E00D8FFF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 45ZZCTM637;
 				INFOPLIST_FILE = PhotoToolboxTests/Info.plist;
@@ -390,6 +411,7 @@
 		38CDEED42014211E00D8FFF1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 45ZZCTM637;
 				INFOPLIST_FILE = PhotoToolboxTests/Info.plist;
