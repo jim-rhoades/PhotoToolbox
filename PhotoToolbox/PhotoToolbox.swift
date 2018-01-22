@@ -23,7 +23,7 @@ public class PhotoToolbox {
 			print("failed to load PhotoToolboxViewController")
 			return
 		}
-		photoToolboxViewController.photo = photo
+		photoToolboxViewController.originalPhoto = photo
 		photoToolboxViewController.delegate = presentingViewController as? PhotoToolboxDelegate
 		presentingViewController.present(navController, animated: true, completion: nil)
 	}
