@@ -13,14 +13,14 @@ enum FilterType: String {
 	case colorMatrix = "Color matrix"
 	case noir = "Noir"
 	case sepia = "Sepia (50% intensity)"
-	case bloom = "Cross process + bloom"
+	case crossProcess = "Cross process + vignette"
 	case kaleidoscope = "Kaleidoscope"
 	
 	static let allValues: [FilterType] = [.none,
 										  .colorMatrix,
 										  .noir,
 										  .sepia,
-										  .bloom,
+										  .crossProcess,
 										  .kaleidoscope]
 }
 
@@ -42,8 +42,8 @@ class FilterFactory {
 			outputImage = noirImageFor(ciImage)
 		case .sepia:
 			outputImage = sepiaImageFor(ciImage)
-		case .bloom:
-			outputImage = bloomImageFor(ciImage)
+		case .crossProcess:
+			outputImage = crossProcessImageFor(ciImage)
 		case .kaleidoscope:
 			outputImage = kaleidoscopeImageFor(ciImage)
 		}
@@ -72,10 +72,10 @@ class FilterFactory {
 	private static func colorMatrixImageFor(_ inputImage: CIImage) -> CIImage? {
 		let filter = CIFilter(name: "CIColorMatrix", withInputParameters:
 			[kCIInputImageKey: inputImage,
-			 "inputRVector": CIVector(x: 0.9, y: 0, z: 0, w: 0),
-			 "inputGVector": CIVector(x: 0.1, y: 1, z: 0.2, w: 0),
-			 "inputBVector": CIVector(x: 0, y: 0, z: 1, w: 0),
-			 "inputAVector": CIVector(x: 0, y: 0, z: 0, w: 1)])
+			 "inputRVector": CIVector(x: 1.1, y: -0.1, z: -0.1, w: -0.1),
+			 "inputGVector": CIVector(x: 0, y: 0.9, z: 0, w: 0),
+			 "inputBVector": CIVector(x: 0, y: 0, z: 1.1, w: 0),
+			 "inputAVector": CIVector(x: 0, y: 0, z: 0, w: 1.1)])
 		
 		return filter?.outputImage
 	}
@@ -95,17 +95,16 @@ class FilterFactory {
 		return filter?.outputImage
 	}
 	
-	private static func bloomImageFor(_ inputImage: CIImage) -> CIImage? {
+	private static func crossProcessImageFor(_ inputImage: CIImage) -> CIImage? {
 		let filter = CIFilter(name: "CIPhotoEffectProcess", withInputParameters:
 			[kCIInputImageKey: inputImage])
 		
-		// pass the output of the CIPhotoEffectProcess filter into the CIBloom filter
-		let bloomImage = filter?.outputImage?.applyingFilter("CIBloom",
-															parameters: [
-																kCIInputRadiusKey: 10.0,
-																kCIInputIntensityKey: 1.0
-			])
-		return bloomImage
+		// pass the output of the CIPhotoEffectProcess filter into the CIVignette filter
+		let vignetteImage = filter?.outputImage?.applyingFilter("CIVignette", parameters:
+			[kCIInputRadiusKey: 1.5,
+			 kCIInputIntensityKey: 1.0])
+		
+		return vignetteImage
 	}
 	
 	private static func kaleidoscopeImageFor(_ inputImage: CIImage) -> CIImage? {
@@ -118,13 +117,15 @@ class FilterFactory {
 		let vector = CIVector(cgPoint: center)
 		filter?.setValue(vector, forKey: kCIInputCenterKey)
 		
-		// set it to have 12 nodes
-		filter?.setValue(12, forKey: "inputCount") // there is no kCIInputCountKey?
+		// set the number of nodes
+		filter?.setValue(4, forKey: "inputCount") // there is no kCIInputCountKey?
 		
-		// set the angle
-		// filter?.setValue(45, forKey: kCIInputAngleKey)
+		// crop to the original size of the image
+		let cropVector = CIVector(cgRect: inputImage.extent)
+		let croppedImage = filter?.outputImage?.applyingFilter("CICrop",
+															   parameters: ["inputRectangle" : cropVector])
 		
-		return filter?.outputImage
+		return croppedImage
 	}
 	
 	
