@@ -68,9 +68,6 @@ class FilterFactory {
 			return nil
 		}
 		
-		// could be improved using OpenGL?
-		// see: https://www.objc.io/issues/21-camera-and-photos/core-image-intro/
-		
 		// create the final UIImage in a way that keeps the inputImage's orientation
 		return UIImage(cgImage: cgImage, scale: 1.0, orientation: inputImage.imageOrientation)
 	}
@@ -130,8 +127,8 @@ class FilterFactory {
 		
 		// crop to the original size of the image
 		let cropVector = CIVector(cgRect: inputImage.extent)
-		let croppedImage = filter?.outputImage?.applyingFilter("CICrop",
-															   parameters: ["inputRectangle" : cropVector])
+		let croppedImage = filter?.outputImage?.applyingFilter("CICrop", parameters:
+			["inputRectangle" : cropVector])
 		
 		return croppedImage
 	}
