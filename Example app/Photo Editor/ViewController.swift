@@ -47,6 +47,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
 	func resetInterface() {
 		photo = nil
 		photoView.image = UIImage(named: "image_placeholder")
+		editPhotoButton.isEnabled = false
 	}
 }
 
