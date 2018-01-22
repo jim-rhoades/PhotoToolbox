@@ -76,6 +76,9 @@ extension ViewController: PhotoToolboxDelegate {
 	func finishedEditing(filteredPhoto: UIImage) {
 		photo = filteredPhoto
 		photoView.image = filteredPhoto
+		
+		// TODO: save the filtered photo to the camera roll if desired
+		
 		dismiss(animated: true, completion: nil)
 	}
 	
