@@ -19,8 +19,8 @@ class PhotoToolboxViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		// note that the 'originalPhoto' var is set when calling the 'editPhoto'
-		// class method of PhotoToolbox
+		// note that the 'originalPhoto' var is already set at this point,
+		// during the call to the 'editPhoto' class method of PhotoToolbox
 		photoView.image = originalPhoto
     }
 
@@ -60,10 +60,10 @@ extension PhotoToolboxViewController: UIPickerViewDelegate {
 	}
 	
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-		
 		let filterType = FilterType.allValues[row]
 		
 		if filterType == .none {
+			// selected "No filter", so reset
 			filteredPhoto = nil
 			photoView.image = originalPhoto
 			navigationItem.rightBarButtonItem?.isEnabled = false // disable save button
