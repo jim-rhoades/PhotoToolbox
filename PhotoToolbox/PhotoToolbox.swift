@@ -8,8 +8,19 @@
 
 import Foundation
 
+public protocol PhotoToolboxDelegate: class {
+	func finishedEditing(filteredPhoto: UIImage)
+	func canceledEditing()
+}
+
 public class PhotoToolbox {
 	
+	/**
+		Presents the UI for editing a photo.
+	
+		- Parameter photo: 							The UIImage to be edited.
+		- Parameter presentingViewController:		The UIViewController calling this method. Note that the presentingViewController MUST conform to the PhotoToolboxDelegate protocol.
+	*/
 	static public func editPhoto(_ photo: UIImage, presentingViewController: UIViewController) {
 		
 		// load and configure the PhotoToolboxViewController

@@ -26,6 +26,14 @@ enum FilterType: String {
 
 class FilterFactory {
 	
+	/**
+		Processes a UIImage using the specified filter
+	
+		- Parameter inputImage:		The UIImage to process.
+		- Parameter filterType:		The filter to apply to the image.
+	
+		- Returns:	The filtered image as a UIImage.
+	*/
 	static func processImage(_ inputImage: UIImage, usingFilter filterType: FilterType) -> UIImage? {
 		
 		guard let ciImage = CIImage(image: inputImage) else {

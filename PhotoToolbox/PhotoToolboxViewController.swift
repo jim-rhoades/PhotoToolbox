@@ -8,11 +8,6 @@
 
 import UIKit
 
-public protocol PhotoToolboxDelegate: class {
-	func finishedEditing(filteredPhoto: UIImage)
-	func canceledEditing()
-}
-
 class PhotoToolboxViewController: UIViewController {
 	
 	@IBOutlet weak var filterPicker: UIPickerView!
@@ -24,9 +19,7 @@ class PhotoToolboxViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		// print("BUILT IN FILTER NAMES:\n\n \(FilterFactory.builtInFilterNames())")
-		
-		// note that the 'photo' var is set when calling the 'editPhoto'
+		// note that the 'originalPhoto' var is set when calling the 'editPhoto'
 		// class method of PhotoToolbox
 		photoView.image = originalPhoto
     }
